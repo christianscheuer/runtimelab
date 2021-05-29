@@ -1,12 +1,21 @@
 using System;
-using System.IO;
-using ICSharpCode.SharpZipLib.Zip.Compression;
 
 class Program
 {
     public static void Main()
     {
         Console.WriteLine("Repro");
-        var inflater = new Inflater(true);
+    }
+
+    static Program()
+    {
+        byte[] codeLengths = new byte[288];
+        codeLengths = new byte[32];
+        int i = 0;
+        while (i < 32)
+        {
+            codeLengths[i++] = 5;
+        }
+
     }
 }
