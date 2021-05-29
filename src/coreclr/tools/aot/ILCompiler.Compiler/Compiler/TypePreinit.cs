@@ -89,6 +89,11 @@ namespace ILCompiler
             {
                 status = Status.Fail(type.GetStaticConstructor(), ex.Message);
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Could not scan static constructor - " + type.Namespace + "." + type.Name);
+                throw new Exception("Could not scan static constructor - " + type.Namespace + "." + type.Name, ex);
+            }
 
             if (status.IsSuccessful)
             {
